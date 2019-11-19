@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mikan;
+option go_package = "mikanpb";
+
+message Mikan {
+  string name = 1;
+  string color = 2;
+}
+
+message MikanRequest { Mikan mikan = 1; }
+
+message MikanResponse { string result = 1; }
+
+service MikanService {
+  rpc Mikan(MikanRequest) returns (MikanResponse) {};
+}

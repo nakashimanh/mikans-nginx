@@ -1,0 +1,20 @@
+version: "3"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: "docker/Dockerfile.api"
+    volumes:
+      - .:/api
+    ports:
+      - 1188:1188
+  nginx:
+    build:
+      context: .
+      dockerfile: "docker/Dockerfile.nginx"
+    volumes:
+      - "./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro"
+    links:
+      - "api"
+    ports:
+      - 8080:80
