@@ -7,7 +7,7 @@ import (
 	"net"
 	"strconv"
 
-	"github.com/nakashimanh/mikans/docker-mikan/mikanpb"
+	"github.com/nakashimanh/mikans/mikanpb"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"

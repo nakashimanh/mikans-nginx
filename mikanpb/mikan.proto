@@ -4,8 +4,9 @@ package mikan;
 option go_package = "mikanpb";
 
 message Mikan {
-  string name = 1;
-  string color = 2;
+  string Name = 1;
+  string Kind = 2;
+  int64 Quality = 3;
 }
 
 message MikanRequest { Mikan mikan = 1; }
