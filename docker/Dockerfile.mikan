@@ -1,0 +1,10 @@
+FROM golang:1.13
+
+WORKDIR /grpcapi
+ADD . /grpcapi
+
+COPY go.mod .
+COPY go.sum .
+RUN go mod download
+
+CMD ["go", "run", "grpcapi/server.go"]

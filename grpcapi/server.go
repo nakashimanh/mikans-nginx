@@ -16,7 +16,7 @@ import (
 type server struct{}
 
 func (*server) Mikan(ctx context.Context, req *mikanpb.MikanRequest) (*mikanpb.MikanResponse, error) {
-	fmt.Printf("Greet function was invoked with %v\n", req)
+	fmt.Printf("Mikan function was invoked with %v\n", req)
 	name := req.GetMikan().GetName()
 	kind := req.GetMikan().GetKind()
 	quality := req.GetMikan().GetQuality()
@@ -35,7 +35,6 @@ func main() {
 	}
 	s := grpc.NewServer()
 	mikanpb.RegisterMikanServiceServer(s, &server{})
-	// Register reflection service on gRPC server.
 	reflection.Register(s)
 
 	fmt.Println("grpc.NewServer")
