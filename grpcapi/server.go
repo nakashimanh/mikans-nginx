@@ -28,7 +28,7 @@ func (*server) Mikan(ctx context.Context, req *mikanpb.MikanRequest) (*mikanpb.M
 }
 
 func main() {
-	fmt.Println("Hello Mikan World- GRPC ")
+	fmt.Println("Starting Mikan Service")
 	lis, err := net.Listen("tcp", "0.0.0.0:50051")
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
@@ -37,9 +37,6 @@ func main() {
 	mikanpb.RegisterMikanServiceServer(s, &server{})
 	reflection.Register(s)
 
-	fmt.Println("grpc.NewServer")
-	fmt.Println()
-	fmt.Println()
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
